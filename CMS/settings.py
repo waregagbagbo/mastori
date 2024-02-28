@@ -30,7 +30,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env("SECRET_KEY")
+#SECRET_KEY = env("SECRET_KEY")
+SECRET_KEY = 'django-insecure-1jp(@_p+=rd3dr_s642#%bz=wdipmogn-u4xo_@40_j%+%@_^&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -111,7 +112,7 @@ WSGI_APPLICATION = 'CMS.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = {
+'''DATABASES = {
     'default': {
        "ENGINE": "django.db.backends.postgresql_psycopg2",
         "NAME": env("DATABASE_DB"),
@@ -119,6 +120,13 @@ DATABASES = {
         "PASSWORD": env("DATABASE_PASSWORD"),
         "HOST": env("DATABASE_HOST"),
         "PORT": env("DATABASE_PORT"),
+    }
+}'''
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
@@ -281,11 +289,11 @@ TEMPLATED_EMAIL_BACKEND = 'templated_email.backends.vanilla_django.TemplateBacke
 
 TEMPLATED_EMAIL_FILE_EXTENSION = 'email'
 
-EMAIL_HOST = env("EMAIL_HOST")
-EMAIL_PORT = env("EMAIL_PORT")
+#EMAIL_HOST = env("EMAIL_HOST")
+#EMAIL_PORT = env("EMAIL_PORT")
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = env("EMAIL_HOST_USER")
-EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD")
+#EMAIL_HOST_USER = env("EMAIL_HOST_USER")
+#EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD")
 
 DJOSER = {
     'SERIALIZERS': {
